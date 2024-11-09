@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="performance">
 <title>Checking outliers with *performance* • performance</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -13,105 +12,71 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../lightswitch.js"></script><script src="../katex-auto.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><script src="../deps/bslib-component-js-0.5.1.9000/components.min.js"></script><script src="../deps/bslib-component-js-0.5.1.9000/web-components.min.js" type="module"></script><link href="../deps/bslib-component-css-0.5.1.9000/components.css" rel="stylesheet">
-<link href="../deps/Roboto-0.4.7/font.css" rel="stylesheet">
-<link href="../deps/JetBrains_Mono-0.4.7/font.css" rel="stylesheet">
-<link href="../deps/Roboto_Slab-0.4.7/font.css" rel="stylesheet">
-<!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Checking outliers with *performance*">
-<meta property="og:description" content="performance">
-<meta property="og:image" content="https://easystats.github.io/performance/reference/figures/card.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content="@easystats4u">
-<meta name="twitter:site" content="@easystats4u">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/Roboto-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/JetBrains_Mono-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/Roboto_Slab-0.4.9/font.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><link href="../deps/KaTex-0.16.10/katex.min.css" rel="stylesheet">
+<script src="../deps/KaTex-0.16.10/katex.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Checking outliers with *performance*">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
+
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
+
     <a class="navbar-brand me-2" href="../index.html">performance</a>
 
-    <small class="nav-text text-default me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.10.6.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.12.4.5</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item">
-  <a class="nav-link" href="../reference/index.html" aria-label="Reference">
-    <span class="fa fa fa fa-file-code"></span>
-     
-    Reference
-  </a>
-</li>
-<li class="active nav-item">
-  <a class="nav-link" href="../articles/index.html" aria-label="Articles">
-    <span class="fa fa fa fa-book-reader"></span>
-     
-    Articles
-  </a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="../news/index.html" aria-label="News">
-    <span class="fa fa fa fa-newspaper"></span>
-     
-    News
-  </a>
-</li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html" aria-label="Reference"><span class="fa fa-file-code"></span> Reference</a></li>
+<li class="active nav-item"><a class="nav-link" href="../articles/index.html" aria-label="Articles"><span class="fa fa-book-reader"></span> Articles</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html" aria-label="News"><span class="fa fa-newspaper"></span> News</a></li>
       </ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav">
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
+</form></li>
 <li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--easystats" aria-label="easystats">
-    <span class="fab fa fab fa-r-project"></span>
-     
-    easystats
-  </a>
-  <div class="dropdown-menu" aria-labelledby="dropdown--easystats">
-    <a class="external-link dropdown-item" href="https://easystats.github.io/bayestestR/">bayestestR</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/correlation/">correlation</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/datawizard/">datawizard</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/easystats/">easystats</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/effectsize/">effectsize</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/insight/">insight</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/modelbased/">modelbased</a>
-    <a class="dropdown-item" href="https://easystats.github.io/performance/">performance</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/parameters/">parameters</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/report/">report</a>
-    <a class="external-link dropdown-item" href="https://easystats.github.io/see/">see</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-easystats" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="easystats"><span class="fa fab fa-r-project"></span> easystats</button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-easystats">
+<li><a class="external-link dropdown-item" href="https://easystats.github.io/bayestestR/">bayestestR</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/correlation/">correlation</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/datawizard/">datawizard</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/easystats/">easystats</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/effectsize/">effectsize</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/insight/">insight</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/modelbased/">modelbased</a></li>
+    <li><a class="dropdown-item" href="https://easystats.github.io/performance/">performance</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/parameters/">parameters</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/report/">report</a></li>
+    <li><a class="external-link dropdown-item" href="https://easystats.github.io/see/">see</a></li>
+  </ul>
 </li>
-<li class="nav-item">
-  <a class="external-link nav-link" href="http://twitter.com/easystats4u" aria-label="Twitter">
-    <span class="fa fa-twitter"></span>
-     
-  </a>
-</li>
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/easystats/performance/" aria-label="github">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
+<li class="nav-item"><a class="external-link nav-link" href="http://twitter.com/easystats4u" aria-label="Twitter"><span class="fa fa-twitter"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/easystats/performance/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
 </li>
       </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-article">
 
@@ -123,7 +88,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Checking outliers with *performance*</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/easystats/performance/blob/HEAD/vignettes/check_outliers.Rmd" class="external-link"><code>vignettes/check_outliers.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/easystats/performance/blob/main/vignettes/check_outliers.Rmd" class="external-link"><code>vignettes/check_outliers.Rmd</code></a></small>
       <div class="d-none name"><code>check_outliers.Rmd</code></div>
     </div>
 
@@ -133,17 +98,22 @@
 <h2 id="reuse-of-this-material">Reuse of this Material<a class="anchor" aria-label="anchor" href="#reuse-of-this-material"></a>
 </h2>
 <blockquote>
-<p>Note: This vignette is an extended write-up of the <a href="https://jose.theoj.org/papers/42749638170253bb2854649fb52bf4ca" class="external-link">JOSE
-paper</a>. This educational module can be freely reused for teaching
-purposes as long as the original JOSE paper and this vignette are cited
-or acknowledged. The raw code file, which can be adapted to other
-rmarkdown formats for teaching purposes, can be accessed <a href="https://github.com/easystats/performance/blob/HEAD/vignettes/check_outliers.Rmd" class="external-link">here</a>.
+<p>Note: This vignette is an extended write-up of the <a href="https://doi.org/10.3758/s13428-024-02356-w" class="external-link">Behavior Research
+Methods paper</a>. This educational module can be freely reused for
+teaching purposes as long as the original BRM paper is cited. The raw
+code file, which can be adapted to other rmarkdown formats for teaching
+purposes, can be accessed <a href="https://github.com/easystats/performance/blob/HEAD/vignettes/check_outliers.Rmd" class="external-link">here</a>.
 To contribute to and improve this content directly, please submit a Pull
 Request at the <em>{performance}</em> package GitHub repository by
 following our usual contributing guidelines: <a href="https://easystats.github.io/performance/CONTRIBUTING.html" class="uri">https://easystats.github.io/performance/CONTRIBUTING.html</a>.
 To report issues or problems, with this module, or seek support, please
 open an issue: <a href="https://github.com/easystats/performance/issues" class="external-link uri">https://github.com/easystats/performance/issues</a>.</p>
 </blockquote>
+<p><strong>Reference:</strong></p>
+<p>Thériault, R., Ben-Shachar, M. S., Patil, I., Lüdecke, D., Wiernik,
+B. M., &amp; Makowski, D. (2024). Check your outliers﻿! An introduction
+to identifying statistical outliers in R with easystats. <em>Behavior
+Research Methods</em>, 1-11. <a href="https://doi.org/10.3758/s13428-024-02356-w" class="external-link uri">https://doi.org/10.3758/s13428-024-02356-w</a></p>
 </div>
 <div class="section level2">
 <h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
@@ -380,9 +350,9 @@ use this approach with <code>method = "mcd"</code>.<a class="footnote-ref" tabin
 an approximation of the critical value for &lt;em&gt;p&lt;/em&gt; &amp;lt; .001
 consistent with the thresholds of our other methods.&lt;/p&gt;"><sup>4</sup></a></p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">outliers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_outliers.html">check_outliers</a></span><span class="op">(</span><span class="va">data</span>, method <span class="op">=</span> <span class="st">"mcd"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">outliers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_outliers.html">check_outliers</a></span><span class="op">(</span><span class="va">data</span>, method <span class="op">=</span> <span class="st">"mcd"</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="va">outliers</span></span></code></pre></div>
-<pre><code>&gt; 9 outliers detected: cases 7, 15, 16, 17, 24, 29, 31, 33, 34.
+<pre><code>&gt; 2 outliers detected: cases 33, 34.
 &gt; - Based on the following method and threshold: mcd (20).
 &gt; - For variables: mpg, cyl, disp, hp.</code></pre>
 <p>Here, we detected 9 multivariate outliers (i.e,. when looking at all
@@ -458,32 +428,32 @@ thresholds.</p>
 <p><em>Summary of Statistical Outlier Detection Methods
 Recommendations</em></p>
 <div class="tabwid">
-<style>.cl-7469c468{}.cl-745f4d76{font-family:'Latin Modern Roman';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-745f4d94{font-family:'Latin Modern Roman';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-745f4d9e{font-family:'Latin Modern Roman';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7464014a{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-74641fea{width:2.25in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(0, 0, 0, 1.00);border-top: 0.75pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-74641ffe{width:2.25in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-74642008{width:2.25in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
-<table data-quarto-disable-processing="true" class="table cl-7469c468">
+<style>.cl-94521ab0{}.cl-944c3b0e{font-family:'Latin Modern Roman';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-944c3b18{font-family:'Latin Modern Roman';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-944c3b22{font-family:'Latin Modern Roman';font-size:11pt;font-weight:normal;font-style:italic;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-944eb9ce{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 2;background-color:transparent;}.cl-944ed3a0{width:2.25in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(0, 0, 0, 1.00);border-top: 0.75pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-944ed3aa{width:2.25in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-944ed3ab{width:2.25in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style>
+<table data-quarto-disable-processing="true" class="table cl-94521ab0">
 <thead><tr style="overflow-wrap:break-word;">
-<th class="cl-74641fea"><p class="cl-7464014a"><span class="cl-745f4d76">Statistical Test</span></p></th>
-<th class="cl-74641fea"><p class="cl-7464014a"><span class="cl-745f4d76">Diagnosis Method</span></p></th>
-<th class="cl-74641fea"><p class="cl-7464014a"><span class="cl-745f4d76">Recommended Threshold</span></p></th>
-<th class="cl-74641fea"><p class="cl-7464014a"><span class="cl-745f4d76">Function Usage</span></p></th>
+<th class="cl-944ed3a0"><p class="cl-944eb9ce"><span class="cl-944c3b0e">Statistical Test</span></p></th>
+<th class="cl-944ed3a0"><p class="cl-944eb9ce"><span class="cl-944c3b0e">Diagnosis Method</span></p></th>
+<th class="cl-944ed3a0"><p class="cl-944eb9ce"><span class="cl-944c3b0e">Recommended Threshold</span></p></th>
+<th class="cl-944ed3a0"><p class="cl-944eb9ce"><span class="cl-944c3b0e">Function Usage</span></p></th>
 </tr></thead>
 <tbody>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-74641ffe"><p class="cl-7464014a"><span class="cl-745f4d76">Supported</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">regression</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">model</span></p></td>
-<td class="cl-74641ffe"><p class="cl-7464014a"><span class="cl-745f4d94">Model-based</span><span class="cl-745f4d76">:</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Cook</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">(or</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Pareto</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">for</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Bayesian</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">models)</span></p></td>
-<td class="cl-74641ffe"><p class="cl-7464014a"><span class="cl-745f4d9e">qf(0.5,</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">ncol(x),</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">nrow(x)</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">-</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">ncol(x))</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">(or</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">0.7</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">for</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Pareto)</span></p></td>
-<td class="cl-74641ffe"><p class="cl-7464014a"><span class="cl-745f4d9e">check_outliers(model,</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">method</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">=</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">“</span><span class="cl-745f4d9e">cook</span><span class="cl-745f4d9e">”</span><span class="cl-745f4d9e">)</span></p></td>
+<td class="cl-944ed3aa"><p class="cl-944eb9ce"><span class="cl-944c3b0e">Supported</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">regression</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">model</span></p></td>
+<td class="cl-944ed3aa"><p class="cl-944eb9ce"><span class="cl-944c3b18">Model-based</span><span class="cl-944c3b0e">:</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Cook</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">(or</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Pareto</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">for</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Bayesian</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">models)</span></p></td>
+<td class="cl-944ed3aa"><p class="cl-944eb9ce"><span class="cl-944c3b22">qf(0.5,</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">ncol(x),</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">nrow(x)</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">-</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">ncol(x))</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">(or</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">0.7</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">for</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Pareto)</span></p></td>
+<td class="cl-944ed3aa"><p class="cl-944eb9ce"><span class="cl-944c3b22">check_outliers(model,</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">method</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">=</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">“</span><span class="cl-944c3b22">cook</span><span class="cl-944c3b22">”</span><span class="cl-944c3b22">)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-74641ffe"><p class="cl-7464014a"><span class="cl-745f4d76">Structural</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Equation</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Modeling</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">(or</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">other</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">unsupported</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">model)</span></p></td>
-<td class="cl-74641ffe"><p class="cl-7464014a"><span class="cl-745f4d94">Multivariate</span><span class="cl-745f4d76">:</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Minimum</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Covariance</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">Determinant</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">(MCD)</span></p></td>
-<td class="cl-74641ffe"><p class="cl-7464014a"><span class="cl-745f4d9e">qchisq(p</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">=</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">1</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">-</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">0.001,</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">df</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">=</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">ncol(x))</span></p></td>
-<td class="cl-74641ffe"><p class="cl-7464014a"><span class="cl-745f4d9e">check_outliers(data,</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">method</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">=</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">“</span><span class="cl-745f4d9e">mcd</span><span class="cl-745f4d9e">”</span><span class="cl-745f4d9e">)</span></p></td>
+<td class="cl-944ed3aa"><p class="cl-944eb9ce"><span class="cl-944c3b0e">Structural</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Equation</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Modeling</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">(or</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">other</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">unsupported</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">model)</span></p></td>
+<td class="cl-944ed3aa"><p class="cl-944eb9ce"><span class="cl-944c3b18">Multivariate</span><span class="cl-944c3b0e">:</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Minimum</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Covariance</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">Determinant</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">(MCD)</span></p></td>
+<td class="cl-944ed3aa"><p class="cl-944eb9ce"><span class="cl-944c3b22">qchisq(p</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">=</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">1</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">-</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">0.001,</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">df</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">=</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">ncol(x))</span></p></td>
+<td class="cl-944ed3aa"><p class="cl-944eb9ce"><span class="cl-944c3b22">check_outliers(data,</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">method</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">=</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">“</span><span class="cl-944c3b22">mcd</span><span class="cl-944c3b22">”</span><span class="cl-944c3b22">)</span></p></td>
 </tr>
 <tr style="overflow-wrap:break-word;">
-<td class="cl-74642008"><p class="cl-7464014a"><span class="cl-745f4d76">Simple</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">test</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">with</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">few</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">variables</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">(</span><span class="cl-745f4d9e">t</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">test,</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">correlation,</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">etc.)</span></p></td>
-<td class="cl-74642008"><p class="cl-7464014a"><span class="cl-745f4d94">Univariate</span><span class="cl-745f4d76">:</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">robust</span><span class="cl-745f4d76"> </span><span class="cl-745f4d9e">z</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">scores</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">(MAD)</span></p></td>
-<td class="cl-74642008"><p class="cl-7464014a"><span class="cl-745f4d9e">qnorm(p</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">=</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">1</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">-</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">0.001</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">/</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">2)</span><span class="cl-745f4d76">,</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">~</span><span class="cl-745f4d76"> </span><span class="cl-745f4d76">3.29</span></p></td>
-<td class="cl-74642008"><p class="cl-7464014a"><span class="cl-745f4d9e">check_outliers(data,</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">method</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">=</span><span class="cl-745f4d9e"> </span><span class="cl-745f4d9e">“</span><span class="cl-745f4d9e">zscore_robust</span><span class="cl-745f4d9e">”</span><span class="cl-745f4d9e">)</span></p></td>
+<td class="cl-944ed3ab"><p class="cl-944eb9ce"><span class="cl-944c3b0e">Simple</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">test</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">with</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">few</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">variables</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">(</span><span class="cl-944c3b22">t</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">test,</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">correlation,</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">etc.)</span></p></td>
+<td class="cl-944ed3ab"><p class="cl-944eb9ce"><span class="cl-944c3b18">Univariate</span><span class="cl-944c3b0e">:</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">robust</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b22">z</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">scores</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">(MAD)</span></p></td>
+<td class="cl-944ed3ab"><p class="cl-944eb9ce"><span class="cl-944c3b22">qnorm(p</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">=</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">1</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">-</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">0.001</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">/</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">2)</span><span class="cl-944c3b0e">,</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">~</span><span class="cl-944c3b0e"> </span><span class="cl-944c3b0e">3.29</span></p></td>
+<td class="cl-944ed3ab"><p class="cl-944eb9ce"><span class="cl-944c3b22">check_outliers(data,</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">method</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">=</span><span class="cl-944c3b22"> </span><span class="cl-944c3b22">“</span><span class="cl-944c3b22">zscore_robust</span><span class="cl-944c3b22">”</span><span class="cl-944c3b22">)</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -534,7 +504,7 @@ outlier; bottom-right).
 model-consistent observation will be incorrectly flagged as an outlier
 or influential observation.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">outliers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_outliers.html">check_outliers</a></span><span class="op">(</span><span class="va">model</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"zscore_robust"</span>, <span class="st">"mcd"</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">outliers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_outliers.html">check_outliers</a></span><span class="op">(</span><span class="va">model</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"zscore_robust"</span>, <span class="st">"mcd"</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">outliers</span><span class="op">)</span></span></code></pre></div>
 <pre><code>&gt; [1] 1501 1502</code></pre>
 <p>In contrast, the model-based detection method displays the desired
@@ -585,7 +555,7 @@ at least half of the methods). In <em>{performance}</em>’s
 <code><a href="../reference/check_outliers.html">check_outliers()</a></code>, one can use this approach by including
 all desired methods in the corresponding argument.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">outliers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_outliers.html">check_outliers</a></span><span class="op">(</span><span class="va">model</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"zscore_robust"</span>, <span class="st">"mcd"</span>, <span class="st">"cook"</span><span class="op">)</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">outliers</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_outliers.html">check_outliers</a></span><span class="op">(</span><span class="va">model</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"zscore_robust"</span>, <span class="st">"mcd"</span>, <span class="st">"cook"</span><span class="op">)</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">outliers</span><span class="op">)</span></span></code></pre></div>
 <pre><code>&gt; [1] 1501 1502</code></pre>
 <p>Outliers (counts or per variables) for individual methods can then be
@@ -821,28 +791,26 @@ Review</em> 2 (1): 20–54. <a href="https://doi.org/10.3758/BF03214411" class="
 </div>
 </div>
 
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by <a href="https://github.com/strengejacke" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://home.msbstats.info/" class="external-link">Mattan S. Ben-Shachar</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, Philip Waggoner, <a href="https://wiernik.org/" class="external-link">Brenton M. Wiernik</a>.</p>
+  <p>Developed by <a href="https://github.com/strengejacke" class="external-link">Daniel Lüdecke</a>, <a href="https://dominiquemakowski.github.io/" class="external-link">Dominique Makowski</a>, <a href="https://home.msbstats.info/" class="external-link">Mattan S. Ben-Shachar</a>, <a href="https://sites.google.com/site/indrajeetspatilmorality/" class="external-link">Indrajeet Patil</a>, Philip Waggoner, <a href="https://wiernik.org/" class="external-link">Brenton M. Wiernik</a>, <a href="https://remi-theriault.com/" class="external-link">Rémi Thériault</a>.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.9000.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
